@@ -1,16 +1,20 @@
 /* eslint-disable no-dupe-class-members */
 import { CacheManager, MemoryCacheAdapter } from "../cache.ts"; // Adjust the import based on your project structure
+import { vi } from "vitest"; // Import Vitest utilities
 
 // Now, let’s fix the test suite.
 
 describe.only("CacheManager", () => {
     let cache: CacheManager<MemoryCacheAdapter>;
 
-    jest.useFakeTimers();
-
     beforeEach(() => {
         cache = new CacheManager(new MemoryCacheAdapter());
-        jest.setSystemTime(Date.now());
+        vi.useFakeTimers();
+        vi.setSystemTime(Date.now());
+    });
+
+    afterEach(() => {
+        vi.useRealTimers();
     });
 
     it("should set/get/delete cache", async () => {
@@ -39,7 +43,7 @@ describe.only("CacheManager", () => {
             JSON.stringify({ value: "bar", expires: expires })
         );
 
-        jest.setSystemTime(expires + 1000);
+        vi.setSystemTime(expires + 1000);
 
         expect(await cache.get("foo")).toEqual(undefined);
         expect(cache.adapter.data.get("foo")).toEqual(undefined);

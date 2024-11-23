@@ -17,6 +17,7 @@
     "author": "",
     "license": "MIT",
     "devDependencies": {
+        "@ai16z/plugin-solana": "0.1.4-alpha.3",
         "@eslint/js": "^9.13.0",
         "@rollup/plugin-commonjs": "25.0.8",
         "@rollup/plugin-json": "6.1.0",
@@ -52,12 +53,12 @@
         "typescript": "5.6.3"
     },
     "dependencies": {
+        "@ai16z/adapter-sqlite": "workspace:*",
         "@ai-sdk/anthropic": "^0.0.53",
         "@ai-sdk/google": "^0.0.55",
         "@ai-sdk/google-vertex": "^0.0.42",
         "@ai-sdk/groq": "^0.0.3",
         "@ai-sdk/openai": "1.0.0-canary.3",
-        "@ai16z/adapter-sqlite": "workspace:*",
         "@ai16z/adapter-sqljs": "workspace:*",
         "@ai16z/adapter-supabase": "workspace:*",
         "@anthropic-ai/sdk": "^0.30.1",

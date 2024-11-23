@@ -16,6 +16,7 @@ import {
     zeroUuid,
 } from "./constants.ts";
 import { User } from "./types.ts";
+import { CacheManager, MemoryCacheAdapter } from "../cache.ts";
 
 export async function createRuntime({
     env,
@@ -138,6 +139,7 @@ export async function createRuntime({
         evaluators: evaluators ?? [],
         providers: providers ?? [],
         databaseAdapter: adapter,
+        cacheManager: new CacheManager(new MemoryCacheAdapter()),
     });
 
     return { user, session, runtime };
