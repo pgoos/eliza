@@ -1,10 +1,8 @@
 /* eslint-disable no-dupe-class-members */
 import { CacheManager, MemoryCacheAdapter } from "../cache.ts"; // Adjust the import based on your project structure
-import { vi } from "vitest"; // Import Vitest utilities
+import { vi } from "vitest";
 
-// Now, let’s fix the test suite.
-
-describe.only("CacheManager", () => {
+describe("CacheManager", () => {
     let cache: CacheManager<MemoryCacheAdapter>;
 
     beforeEach(() => {
